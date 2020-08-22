@@ -1,0 +1,31 @@
+<app-header></app-header>
+
+<div class="message" *ngIf="activeCart.length === 0">
+  <h2>It looks like you don't have anything in your cart yet! Add something to see it appear here</h2>
+  <img src="../../assets/empty.svg" width="200" />
+</div>
+
+<div class="custom-section">
+  <div class="row" *ngFor="let cartItem of activeCart">
+    <div class="image-container">
+      <img src="https://cdn.shopify.com/s/files/1/0402/2586/5887/files/PHOTO-2020-06-13-13-45-47_540x.jpg" />
+    </div>
+    <div class="text">
+      <span>{{ cartItem.productName }}</span>
+    </div>
+
+    <div class="text">
+      <span>£{{ cartItem.price_data.unit_amount / 100 }}</span>
+    </div>
+
+    <div class="text hover">
+      <span (click)="removeItemFromCart(cartItem)">Remove item</span>
+    </div>
+  </div>
+
+  <div class="button-container" *ngIf="activeCart.length > 0">
+    <button (click)="startCheckoutSession()">Go to checkout</button>
+  </div>
+</div>
+
+<app-footer></app-footer>

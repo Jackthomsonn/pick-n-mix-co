@@ -1,0 +1,22 @@
+<app-header></app-header>
+
+<div class="custom-section">
+  <div class="image-container">
+    <img src="https://cdn.shopify.com/s/files/1/0402/2586/5887/files/PHOTO-2020-06-13-13-45-47_540x.jpg" />
+  </div>
+  <div class="column">
+    <div class="text">
+      <h1>{{ product?.name }}</h1>
+      <h2>£{{ product?.price / 100 }}</h2>
+      <p>{{ product?.description ? product.description : 'A box full of surprises, who knows what may be inside!' }}</p>
+    </div>
+    <app-sweet-selector *ngIf="product?.name.includes('Create your own')"
+      [maxSweetsForProduct]="product?.amountOfSweets">
+    </app-sweet-selector>
+    <div class="button-container">
+      <button [disabled]="!isValid" (click)="addToCart()">Add to cart</button>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

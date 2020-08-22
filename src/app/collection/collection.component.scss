@@ -1,0 +1,55 @@
+:host {
+
+  & > .collection {
+    padding: 4rem;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+
+    & > h1 {
+      color: #321863;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 300;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    & > .images-container {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+      margin-top: 45px;
+      width: 100%;
+
+      & > .image {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        cursor: pointer;
+
+        & > img {
+          width: 300px;
+          height: 400px;
+       }
+
+       & > label {
+        font-family: 'Quicksand', sans-serif;
+        letter-spacing: 0.1rem;
+        font-size: 1rem;
+        font-weight: 300;
+        text-align: center;
+        margin-top: 48px;
+        margin-bottom: 48px;
+        cursor: pointer;
+
+        & > strong {
+          font-size: 1.2rem;
+          font-weight: 500;
+        }
+       }
+      }
+    }
+  }
+}

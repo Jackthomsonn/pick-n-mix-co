@@ -1,0 +1,14 @@
+<div class="image">
+  <img src="https://picsum.photos/90/130" />
+</div>
+<div class="content">
+  <label>{{ inventoryItem?.name }}</label>
+  <div class="row" *ngIf="inventoryItem?.quantity > 0">
+    <button (click)="decrement()">-</button>
+    <strong>{{ amountSelected }}</strong>
+    <button (click)="increment()">+</button>
+  </div>
+  <div class="row" *ngIf="inventoryItem?.quantity === 0">
+    <div class="out-of-stock">Out of stock</div>
+  </div>
+</div>

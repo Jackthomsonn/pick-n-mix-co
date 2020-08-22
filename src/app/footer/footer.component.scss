@@ -1,0 +1,35 @@
+:host {
+  width: 100vw;
+  
+  display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    
+    ul {
+      margin-top: 1rem;
+      padding: 2rem;
+
+      li {
+        list-style: none;
+        
+        & > a {
+          text-decoration: none;
+          color: #565656;
+          font-family: 'Nunito Sans', sans-serif;
+        }
+      }
+
+      &.links {
+        flex: 2;
+      }
+
+      &.social {
+        flex: 1;
+      }
+
+      &.payment-icons {
+        display: flex;
+        flex: 1;
+      }
+    }
+}

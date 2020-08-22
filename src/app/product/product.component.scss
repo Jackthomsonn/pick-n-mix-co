@@ -1,0 +1,74 @@
+:host {
+  display: flex;
+  flex-flow: column wrap;
+
+  & > .custom-section {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    & > .column {
+      display: flex;
+      flex-flow: column wrap;
+
+      & > .text {
+        padding: 2rem;
+        text-align: center;
+
+        & > h1 {
+          color: #321863;
+          font-family: 'Quicksand', sans-serif;
+          font-weight: 400;
+          font-size: 1.5rem;
+          margin-bottom: .5rem;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          width: 100%;
+        }
+
+        & > h2 {
+          color: #321863;
+          font-family: 'Quicksand', sans-serif;
+          font-weight: 300;
+          font-size: 1.2rem;
+          margin-bottom: .5rem;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          width: 100%;
+        }
+
+        & > p {
+          font-family: 'Nunito Sans', sans-serif;
+          font-weight: 300;
+          font-size: 1rem;
+          width: 100%;
+          line-height: 2rem;
+        }
+      }
+
+      & > .button-container {
+        padding: 1rem;
+
+        & > button {
+          background: #F9C032;
+          border: none;
+          padding: 1rem;
+          margin-top: 1rem;
+          width: 100%;
+          text-transform: uppercase;
+          font-family: 'Nunito Sans', sans-serif;
+        }
+      }
+    }
+
+    & > .image-container {
+      margin-top: 24px;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

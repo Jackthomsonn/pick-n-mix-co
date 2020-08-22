@@ -1,0 +1,131 @@
+:host {
+  display: flex;
+  flex-flow: column wrap;
+  height: var(--headerHeight);
+  width: 100vw;
+  background: var(--background);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .cart {
+    display: flex;
+    
+    & > span {
+      display: flex;
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 100%;
+      background-color: #F9C032;
+      transform: translate(-0.5rem, -0.4rem);
+    }
+
+    & > i {
+      cursor: pointer;
+      color: var(--fontcolor);
+    }
+  }
+
+  & > nav {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    height: 5vh;
+    padding: 3rem;
+
+    & > i {
+      cursor: pointer;
+      color: var(--fontcolor);
+    }
+
+    &.desktop {
+      margin: 0 auto;
+      align-items: center;
+      justify-content: center;
+
+      & > .left {
+        flex: 4;
+      }
+
+      & > .right {
+        display: flex;
+
+        & > a {
+          padding-right: 4rem;
+          text-decoration: none;
+          color: var(--fontcolor);
+          font-family: 'Quicksand', sans-serif;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  & > .hero-text {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+
+    h1, h2 {
+      width: 100%;
+      text-align: center;
+      font-family: 'Nunito Sans', sans-serif;
+      letter-spacing: 0.1rem;
+      color: #FFF;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+  }
+
+  & > .menu {
+    background: rgba(255, 255, 255, 1);
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+    & > .menu_header {
+      display: flex;
+      justify-content: flex-start;
+      padding: 2rem;
+
+      & > i {
+        cursor: pointer;
+        background: #F7F7F7;
+        border-radius: 100%;
+        padding: 1rem;
+        color: #565656;
+      }
+    }
+
+    & > .menu_inner {
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      align-items: center;
+      height: 50vh;
+
+      & > a {
+        text-decoration: none;
+        color: #000;
+        
+        & > li {
+          list-style: none;
+          font-family: 'Nunito Sans', sans-serif;
+          margin-bottom: 1rem;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}

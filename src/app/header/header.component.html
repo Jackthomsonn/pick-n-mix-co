@@ -1,0 +1,46 @@
+<nav *ngIf="!isDesktop">
+  <i class="material-icons" (click)="toggleMenu()">menu</i>
+  <a href="">
+    <img src="../../assets/Profile_Photo_165x.png" width="auto" height="80px" />
+  </a>
+  <div class="cart" (click)="goToCart()">
+    <i class="material-icons">shopping_cart</i>
+    <span *ngIf="itemsInCart()"></span>
+  </div>
+</nav>
+
+<nav *ngIf="isDesktop" class="desktop">
+  <a class="left" href="">
+    <img src="../../assets/Profile_Photo_165x.png" width="auto" height="80px" />
+  </a>
+  <div class="right">
+    <a href="/collection">Shop</a>
+    <a href="/about">About us</a>
+    <div class="cart" (click)="goToCart()">
+      <i class="material-icons">shopping_cart</i>
+      <span *ngIf="itemsInCart()"></span>
+    </div>
+  </div>
+</nav>
+
+<div class="hero-text" *ngIf="showHero">
+  <h2>Your sweet friend</h2>
+  <h1>Pick 'n' Mix Co</h1>
+</div>
+
+<div class="menu" *ngIf="showMenu">
+  <div class="menu_header">
+    <i class="material-icons" (click)="toggleMenu()">close</i>
+  </div>
+  <div class="menu_inner">
+    <a href="">
+      <li>Home</li>
+    </a>
+    <a href="about">
+      <li>About Us</li>
+    </a>
+    <a href="collection">
+      <li>Shop</li>
+    </a>
+  </div>
+</div>

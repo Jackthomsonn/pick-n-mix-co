@@ -1,0 +1,36 @@
+<app-header showHero="true"></app-header>
+
+<div class="featured-collection">
+  <h1>Featured Collection</h1>
+  <div class="images-container">
+    <div class="image" *ngFor="let product of products">
+      <img (click)="goToProductPage(product)"
+        [src]="product.image ? product.image : 'https://cdn.shopify.com/s/files/1/0402/2586/5887/products/MysteryBox_1_370x.png?v=1592062390'" />
+      <label (click)="goToProductPage(product)"><strong>{{ product.name }}</strong> - £{{ product.price / 100 }}</label>
+    </div>
+  </div>
+</div>
+
+<div class="newsletter">
+  <h1>Subscribe to our newsletter</h1>
+  <h4>Promotions, new products and sales. Directly to your inbox.</h4>
+
+  <div class="input-container">
+    <input type="text" />
+    <button>Subscribe</button>
+  </div>
+
+</div>
+
+<div class="custom-section">
+  <div class="text">
+    <h1>Adding that personal touch</h1>
+    <p>Pick 'n' Mix Co is a family run business meaning you get that personal touch with every item, which you might not
+      find at the big high street vendors.</p>
+  </div>
+  <div class="image-container">
+    <img src="https://cdn.shopify.com/s/files/1/0402/2586/5887/files/PHOTO-2020-06-13-13-45-47_540x.jpg" />
+  </div>
+</div>
+
+<app-footer></app-footer>
