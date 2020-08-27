@@ -5,6 +5,7 @@ import { CartService } from './../cart.service';
 import { ProductService } from './../product.service';
 import { SweetsService } from './../sweet.service';
 import { ThrowStmt } from '@angular/compiler';
+import { shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product',
@@ -42,13 +43,17 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(q => {
-      this.productService.getProduct(q.get('productId')).subscribe((product: any) => {
-        if (!product.name.includes('Create your own')) {
-          this.isValid = true;
-        }
-        this.sweetsService.amountOfSweetsToBeSelected = product.amountOfSweets;
-        this.product = product;
-      });
+      this.productService.getProduct(q.get('productId'))
+        .pipe(
+          shareReplay({ bufferSize: 1, refCount: true }),
+        )
+        .subscribe((product: any) => {
+          if (!product.name.includes('Create your own')) {
+            this.isValid = true;
+          }
+          this.sweetsService.amountOfSweetsToBeSelected = product.amountOfSweets;
+          this.product = product;
+        });
     });
 
     this.sweetsService.onChange.subscribe(response => {

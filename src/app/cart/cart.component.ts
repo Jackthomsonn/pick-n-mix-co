@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { CartService } from './../cart.service';
 import { Router } from '@angular/router';
+import { environment } from './../../environments/environment';
+import { shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-cart',
@@ -18,15 +20,19 @@ export class CartComponent implements OnInit {
   }
 
   public async startCheckoutSession() {
-    const stripe = (window as any).Stripe('pk_test_CSoObVGF1VapNcOz7acWvmcw00lNtjlUbk');
-    this.cartService.startCheckoutSession().subscribe(token => {
-      localStorage.setItem('checkoutSessionToken', JSON.stringify(token));
-      setTimeout(() => {
-        stripe.redirectToCheckout({
-          sessionId: token
-        }).then(() => { });
-      }, 0);
-    });
+    const stripe = (window as any).Stripe(environment.stripePublicKey);
+    this.cartService.startCheckoutSession()
+      .pipe(
+        shareReplay({ bufferSize: 1, refCount: true }),
+      )
+      .subscribe(token => {
+        localStorage.setItem('checkoutSessionToken', JSON.stringify(token));
+        setTimeout(() => {
+          stripe.redirectToCheckout({
+            sessionId: token
+          }).then(() => { });
+        }, 0);
+      });
   }
 
   ngOnInit(): void {

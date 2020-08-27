@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ProductService } from './../product.service';
 import { Router } from '@angular/router';
+import { shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +23,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.productService
       .getProducts()
+      .pipe(
+        shareReplay({ bufferSize: 1, refCount: true }),
+      )
       .subscribe((products: any) => this.products = products);
   }
 }

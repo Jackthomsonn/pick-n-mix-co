@@ -1,7 +1,6 @@
 :host {
   padding-bottom: 2rem;
   padding-top: 2rem;
-  border-radius: 8rem;
   display: flex;
   flex-direction: row;
   margin: 2rem;
@@ -13,18 +12,22 @@
 
     img {
       border-radius: 8px;
+      width: 90px;
+      height: 130px;
     }
   }
 
   & > .content {
     display: flex;
     flex-flow: column wrap;
+    justify-content: space-between;
     padding: 0 1rem;
 
     & > label {
+      color: #321863;
       font-family: 'Quicksand', sans-serif;
-      font-size: 1.2rem;
       font-weight: 400;
+      font-size: 1.2rem;
     }
 
     & > .row {

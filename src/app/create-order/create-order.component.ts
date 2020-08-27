@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { CartService } from './../cart.service';
+import { environment } from './../../environments/environment';
+import { shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-create-order',
@@ -16,7 +18,7 @@ export class CreateOrderComponent implements OnInit {
   ngOnInit(): void {
     const checkoutSessionToken = JSON.parse(localStorage.getItem('checkoutSessionToken'));
     const sweetIds = this.cartService.cart.map(c => c.selectedSweetsForThisOrder);
-    this.http.post(`http://192.168.0.21:3000/api/createOrder?stripe_address_reference=${ checkoutSessionToken }`, {
+    this.http.post(`${ environment.api_uri }/api/createOrder?stripe_address_reference=${ checkoutSessionToken }`, {
       data: {
         lineItems: {
           create: (this.cartService.cart as any).map(c => {
@@ -45,7 +47,9 @@ export class CreateOrderComponent implements OnInit {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
-    }).subscribe(() => {
+    }).pipe(
+      shareReplay({ bufferSize: 1, refCount: true }),
+    ).subscribe(() => {
       localStorage.removeItem('cart');
       this.orderCreated = true;
     }, (e) => {

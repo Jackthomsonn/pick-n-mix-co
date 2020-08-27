@@ -4,8 +4,7 @@
   <h1>Featured Collection</h1>
   <div class="images-container">
     <div class="image" *ngFor="let product of products">
-      <img (click)="goToProductPage(product)"
-        [src]="product.image ? product.image : 'https://cdn.shopify.com/s/files/1/0402/2586/5887/products/MysteryBox_1_370x.png?v=1592062390'" />
+      <img (click)="goToProductPage(product)" [src]="product.image" />
       <label (click)="goToProductPage(product)"><strong>{{ product.name }}</strong> - £{{ product.price / 100 }}</label>
     </div>
   </div>

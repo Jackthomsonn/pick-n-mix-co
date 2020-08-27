@@ -11,6 +11,8 @@
 
       li {
         list-style: none;
+
+        margin-right: 1rem;
         
         & > a {
           text-decoration: none;
@@ -29,6 +31,7 @@
 
       &.payment-icons {
         display: flex;
+        flex-flow: row wrap;
         flex: 1;
       }
     }

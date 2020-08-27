@@ -32,6 +32,7 @@
         & > img {
           width: 300px;
           height: 400px;
+          border-radius: 8px;
        }
 
        & > label {
@@ -45,8 +46,11 @@
         cursor: pointer;
 
         & > strong {
-          font-size: 1.2rem;
-          font-weight: 500;
+          color: #321863;
+          font-family: 'Quicksand', sans-serif;
+          font-weight: 300;
+          font-size: 1.3rem;
+          text-align: center;
         }
        }
       }
@@ -90,6 +94,7 @@
       background-color: #FFF;
       height: 3rem;
       padding: 2rem 0.6rem;
+      border-radius: 8px;
 
       input {
         border: none;
@@ -97,6 +102,7 @@
         flex: 1;
         height: 3rem;
         min-width: 50vw;
+        border-radius: 8px;
 
         @media (min-width: 1281px) {
           min-width: 15vw;
@@ -106,6 +112,7 @@
       button {
         background-color: #F9C032;
         border: none;
+        border-radius: 8px;
         font-family: 'Quicksand', sans-serif;
         font-size: .8rem;
         text-transform: uppercase;
@@ -153,6 +160,7 @@
       img {
         width: 100%;
         height: auto;
+        border-radius: 8px;
       }
     }
   }

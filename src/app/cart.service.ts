@@ -1,13 +1,12 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Injectable } from '@angular/core';
+import { environment } from './../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private readonly URI: string = 'http://192.168.0.21:3000';
-
   public cart: any[];
 
   constructor(private http: HttpClient) {
@@ -40,7 +39,7 @@ export class CartService {
       };
     });
 
-    return this.http.post(`${ this.URI }/api/createCheckoutSession?web=true`, JSON.stringify(finalCart), {
+    return this.http.post(`${ environment.api_uri }/api/createCheckoutSession`, JSON.stringify(finalCart), {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })

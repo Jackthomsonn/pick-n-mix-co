@@ -4,7 +4,7 @@
     width: 100vw;
     height: 70vh;
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -59,8 +59,9 @@
         cursor: pointer;
 
         img {
-          width: 4rem;
+          width: 7rem;
           height: auto;
+          border-radius: 8px;
         }
       }
     }
@@ -81,6 +82,7 @@
         letter-spacing: 0.1rem;
         border: none;
         padding: 1rem;
+        border-radius: 8px;
       }
     }
   }

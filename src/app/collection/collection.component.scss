@@ -45,8 +45,11 @@
         cursor: pointer;
 
         & > strong {
-          font-size: 1.2rem;
-          font-weight: 500;
+          color: #321863;
+          font-family: 'Quicksand', sans-serif;
+          font-weight: 300;
+          font-size: 1.3rem;
+          text-align: center;
         }
        }
       }
