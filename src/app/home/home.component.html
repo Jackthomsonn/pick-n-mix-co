@@ -5,7 +5,9 @@
   <div class="images-container">
     <div class="image" *ngFor="let product of products">
       <img (click)="goToProductPage(product)" [src]="product.image" />
-      <label (click)="goToProductPage(product)"><strong>{{ product.name }}</strong> - £{{ product.price / 100 }}</label>
+      <label (click)="goToProductPage(product)">
+        <strong>{{ product.name }}</strong> - £{{ (product.price / 100).toFixed(2) }}
+      </label>
     </div>
   </div>
 </div>

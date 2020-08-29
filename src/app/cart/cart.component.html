@@ -15,7 +15,7 @@
     </div>
 
     <div class="text">
-      <span>£{{ cartItem.price_data.unit_amount / 100 }}</span>
+      <span>£{{ (cartItem.price_data.unit_amount / 100).toFixed(2) }}</span>
     </div>
 
     <div class="text hover">

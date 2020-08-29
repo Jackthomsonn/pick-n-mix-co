@@ -7,7 +7,7 @@
   <div class="column">
     <div class="text">
       <h1>{{ product?.name }}</h1>
-      <h2>£{{ product?.price / 100 }}</h2>
+      <h2>£{{ (product?.price / 100).toFixed(2) }}</h2>
       <p>{{ product?.description ? product.description : 'A box full of surprises, who knows what may be inside!' }}</p>
     </div>
     <app-sweet-selector *ngIf="product?.name.includes('Create your own')"

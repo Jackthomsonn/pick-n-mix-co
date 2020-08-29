@@ -18,29 +18,32 @@ export class CreateOrderComponent implements OnInit {
   ngOnInit(): void {
     const checkoutSessionToken = JSON.parse(localStorage.getItem('checkoutSessionToken'));
     const sweetIds = this.cartService.cart.map(c => c.selectedSweetsForThisOrder);
-    this.http.post(`${ environment.api_uri }/api/createOrder?stripe_address_reference=${ checkoutSessionToken }`, {
-      data: {
-        lineItems: {
-          create: (this.cartService.cart as any).map(c => {
-            return {
-              product: {
-                connect: {
-                  stripeProductReference: c.price_data.product
-                }
-              },
-              productOptions: {
-                create: c.selectedSweetsForThisOrder.map(selectedSweetId => {
-                  return {
-                    inventoryItem: {
-                      connect: {
-                        id: selectedSweetId
+    this.http.post(`https://custom-webhook-service.herokuapp.com/webhook`, {
+      url: `${ environment.api_uri }/api/createOrder?stripe_address_reference=${ checkoutSessionToken }`,
+      payload: {
+        data: {
+          lineItems: {
+            create: (this.cartService.cart as any).map(c => {
+              return {
+                product: {
+                  connect: {
+                    stripeProductReference: c.price_data.product
+                  }
+                },
+                productOptions: {
+                  create: c.selectedSweetsForThisOrder.map(selectedSweetId => {
+                    return {
+                      inventoryItem: {
+                        connect: {
+                          id: selectedSweetId
+                        }
                       }
-                    }
-                  };
-                })
-              }
-            };
-          })
+                    };
+                  })
+                }
+              };
+            })
+          }
         }
       }
     }, {
