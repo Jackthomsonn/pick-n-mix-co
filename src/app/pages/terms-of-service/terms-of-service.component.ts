@@ -5,4 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './terms-of-service.component.html',
   styleUrls: [ './terms-of-service.component.scss' ]
 })
+
 export class TermsOfServiceComponent { }

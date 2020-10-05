@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CartService } from './../cart.service';
+import { CartService } from 'src/app/services/cart.service';
 import { Router } from '@angular/router';
-import { environment } from './../../environments/environment';
+import { environment } from 'src/environments/environment';
 import { shareReplay } from 'rxjs/operators';
 
 @Component({
@@ -13,7 +13,7 @@ import { shareReplay } from 'rxjs/operators';
 export class CartComponent implements OnInit {
   public activeCart: any[];
 
-  constructor(private cartService: CartService, private router: Router) { }
+  constructor(private cartService: CartService) { }
 
   public removeItemFromCart(cartItem: any) {
     this.cartService.removeFromCart(cartItem);

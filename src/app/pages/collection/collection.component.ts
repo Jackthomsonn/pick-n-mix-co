@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ProductService } from './../product.service';
+import { ProductService } from 'src/app/services/product.service';
 import { Router } from '@angular/router';
 import { shareReplay } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: [ './home.component.scss' ]
+  selector: 'app-collection',
+  templateUrl: './collection.component.html',
+  styleUrls: [ './collection.component.scss' ]
 })
-export class HomeComponent implements OnInit {
+export class CollectionComponent implements OnInit {
   public products: any[];
 
   constructor(private productService: ProductService, private router: Router) { }

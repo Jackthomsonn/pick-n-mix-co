@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { SweetsService } from './../sweet.service';
+import { SweetsService } from 'src/app/services/sweet.service';
 
 @Component({
   selector: 'app-sweet-item',

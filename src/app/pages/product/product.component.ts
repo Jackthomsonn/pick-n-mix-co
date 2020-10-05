@@ -1,10 +1,9 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
-import { CartService } from './../cart.service';
-import { ProductService } from './../product.service';
-import { SweetsService } from './../sweet.service';
-import { ThrowStmt } from '@angular/compiler';
+import { CartService } from 'src/app/services/cart.service';
+import { ProductService } from 'src/app/services/product.service';
+import { SweetsService } from 'src/app/services/sweet.service';
 import { shareReplay } from 'rxjs/operators';
 
 @Component({

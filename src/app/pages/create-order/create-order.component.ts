@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { CartService } from './../cart.service';
-import { environment } from './../../environments/environment';
+import { CartService } from 'src/app/services/cart.service';
+import { environment } from 'src/environments/environment';
 import { shareReplay } from 'rxjs/operators';
 
 @Component({
@@ -54,6 +54,7 @@ export class CreateOrderComponent implements OnInit {
       shareReplay({ bufferSize: 1, refCount: true }),
     ).subscribe(() => {
       localStorage.removeItem('cart');
+      localStorage.removeItem('checkoutSessionToken');
       this.orderCreated = true;
     }, (e) => {
       this.orderCreated = true;

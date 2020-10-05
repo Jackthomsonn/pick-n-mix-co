@@ -17,9 +17,11 @@
   <h4>Promotions, new products and sales. Directly to your inbox.</h4>
 
   <div class="input-container">
-    <input type="text" />
-    <button>Subscribe</button>
+    <input type="text" [formControl]="email" />
+    <button (click)="signUpForMarketing()" [disabled]="email.invalid">Subscribe</button>
   </div>
+
+  <span style="margin-top: 12px" *ngIf="signedUp">Thank you for signing up!</span>
 
 </div>
 

@@ -1,14 +1,14 @@
 import { RouterModule, Routes } from '@angular/router';
 
-import { AboutComponent } from './about/about.component';
-import { CartComponent } from './cart/cart.component';
-import { CollectionComponent } from './collection/collection.component';
-import { CreateOrderComponent } from './create-order/create-order.component';
-import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './pages/about/about.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { CollectionComponent } from './pages/collection/collection.component';
+import { CreateOrderComponent } from './pages/create-order/create-order.component';
+import { HomeComponent } from './pages/home/home.component';
 import { NgModule } from '@angular/core';
-import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
-import { ProductComponent } from './product/product.component';
-import { TermsOfServiceComponent } from './terms-of-service/terms-of-service.component';
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+import { ProductComponent } from './pages/product/product.component';
+import { TermsOfServiceComponent } from './pages/terms-of-service/terms-of-service.component';
 
 const routes: Routes = [
   {
